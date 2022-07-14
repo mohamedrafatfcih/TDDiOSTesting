@@ -30,4 +30,10 @@ class MetroTicketController{
     func addChildrenTicket(_ ticket: MetroTicket){
         childrenTickets?.append(ticket)
     }
+    
+    func restAllTickets(){
+        oldPeopleTickets?.removeAll()
+        teenageTickets?.removeAll()
+        childrenTickets?.removeAll()
+    }
 }
