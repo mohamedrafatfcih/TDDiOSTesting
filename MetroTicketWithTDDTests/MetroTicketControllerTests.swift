@@ -1,14 +1,13 @@
 //
-//  MetroTicketWithTDDTests.swift
+//  MetroTicketController.swift
 //  MetroTicketWithTDDTests
 //
 //  Created by MohamedRafat on 7/12/22.
 //
 
 import XCTest
-@testable import MetroTicketWithTDD
 
-class MetroTicketWithTDDTests: XCTestCase {
+class MetroTicketController: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
