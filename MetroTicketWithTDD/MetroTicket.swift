@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+enum TicketType{
+    case OldPeople
+    case Teenage
+    case Children
+}
+
+class MetroTicket{
+    let type: TicketType
+    
+    init(type: TicketType){
+        self.type = type
+    }
+}
