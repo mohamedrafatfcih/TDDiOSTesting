@@ -1,5 +1,5 @@
 //
-//  MetroTicketController.swift
+//  MetroTicketControllerTests.swift
 //  MetroTicketWithTDDTests
 //
 //  Created by MohamedRafat on 7/12/22.
@@ -7,26 +7,78 @@
 
 import XCTest
 
-class MetroTicketController: XCTestCase {
+class MetroTicketControllerTests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_MetroTicketControllerNotNil(){
+        let mtc = MetroTicketController()
+        XCTAssertNotNil(mtc)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_OldPeopleTicketsListInMTCNotNil(){
+        let mtc = MetroTicketController()
+        XCTAssertNotNil(mtc.oldPeopleTickets)
     }
+    
+    func test_TeenageTicketsListInMTCNotNil(){
+        let mtc = MetroTicketController()
+        XCTAssertNotNil(mtc.teenageTickets)
+    }
+    
+    func test_ChildrenTicketsListInMTCNotNil(){
+        let mtc = MetroTicketController()
+        XCTAssertNotNil(mtc.childrenTickets)
+    }
+}
 
+
+/// MARK: - Metro Controller Tickets tests
+extension MetroTicketControllerTests{
+    
+    func test_OldPeopleTicketsInMTCAreEmpty(){
+        let mtc = MetroTicketController()
+        XCTAssertEqual(mtc.oldPeopleTickets?.count, 0)
+    }
+    
+    func test_TeenageTicketsInMTCAreEmpty(){
+        let mtc = MetroTicketController()
+        XCTAssertEqual(mtc.teenageTickets?.count, 0)
+    }
+    
+    func test_childrenTicketsInMTCAreEmpty(){
+        let mtc = MetroTicketController()
+        XCTAssertEqual(mtc.childrenTickets?.count, 0)
+    }
+    
+}
+
+/// MARK: - Test Adding Tickets
+extension MetroTicketControllerTests {
+    
+    func test_AddingOneOldPeopleTicket(){
+        let mtc = MetroTicketController()
+        let oldPeopleTicket = MetroTicket(type: .OldPeople)
+        mtc.addOldPeopleTicket(oldPeopleTicket)
+        XCTAssertEqual(mtc.oldPeopleTickets?.count, 1)
+    }
+    
+    func test_AddingOneTeenageTicket(){
+        let mtc = MetroTicketController()
+        let teenageTicket = MetroTicket(type: .Teenage)
+        mtc.addTeenageTicket(teenageTicket)
+        XCTAssertEqual(mtc.teenageTickets?.count, 1)
+    }
+    
+    func test_AddingChildrenTicket(){
+        let mtc = MetroTicketController()
+        let childrenTicket = MetroTicket(type: .Children)
+        mtc.addChildrenTicket(childrenTicket)
+        XCTAssertEqual(mtc.childrenTickets?.count, 1)
+    }
+    
 }
